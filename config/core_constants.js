@@ -2,6 +2,7 @@
 
 const path = require('path')
   , rootPrefix = ".."
+  , logger = require(rootPrefix + '/helpers/custom_console_logger')
 ;
 
 /*
@@ -16,7 +17,13 @@ function define(name, value) {
   });
 }
 //Cache engine
-define('CACHING_ENGINE', process.env.OST_CACHING_ENGINE);
+const whitelistedCachineEngines = ['redis', 'none'];
+if (whitelistedCachineEngines.indexOf(process.env.OST_CACHING_ENGINE) > -1) {
+  define('CACHING_ENGINE', process.env.OST_CACHING_ENGINE);
+} else {
+  logger.error("Only "+whitelistedCachineEngines.toString()+" caching engines are supported");
+  process.exit(0);
+}
 
 // Geth
 define('OST_UTILITY_GETH_RPC_PROVIDER', process.env.OST_UTILITY_GETH_RPC_PROVIDER);
