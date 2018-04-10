@@ -77,11 +77,9 @@ cd scripts
 
 export OST_UTILITY_PRICE_ORACLES='{}'
 export OST_UTILITY_CHAIN_ID=$OST_UTILITY_CHAIN_ID
-export OST_CACHING_ENGINE='none'
 
 echo '\nexport OST_UTILITY_PRICE_ORACLES='\'$OST_UTILITY_PRICE_ORACLES\'>>env_vars.sh
 echo '\nexport OST_UTILITY_CHAIN_ID='\'$OST_UTILITY_CHAIN_ID\'>>env_vars.sh
-echo '\nexport OST_CACHING_ENGINE='\'$OST_CACHING_ENGINE\'>>env_vars.sh
 
 
 echo "\n********* Done *************"
